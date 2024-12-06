@@ -92,23 +92,6 @@ alter table crew add foreign key (operates_flights_id) references operates_fligh
 
 
 
---insert into airline (name, icao_code, iata_code) values ('Delta', 'DL', 'DL');
---select * from airline where name = 'Delta Air Lines'
-
---insert into city (name, country, population, time_zone) values ('Portland', 'USA', 2500000, 'Pacific');
---insert into city (name, country, population, time_zone) values ('Amsterdam', 'Netherlands', 2500000, 'Europe/Amsterdam');
--- select id from city where name like '%Portland%' limit 1;
---select id from city where name like '%Amsterdam%' limit 1;
-
-
---insert into airport (name, iata_code, is_international, terminal_count, gate_count)
---values ('Portland International Airport', 'PDX', 'T', 4, 25);
---insert into airport (name, iata_code, is_international, terminal_count, gate_count)
---values ('Schiphol International Airport', 'AMS', 'T', 8, 50);
---select id from airport where name like '%John F Kennedy%'
---select id from airport where name like '%Portland International Airport%'
-
-
 insert into employee (name, title, start_date, years_experience, airline_id)
 select 'Bob', 'Flight Attendant', '2024-01-01', 1, id 
 from airline where name = 'Delta Air Lines';
@@ -146,3 +129,18 @@ from employee where name = 'Joe';
 insert into flies_to_from (flight_num, depart_airport_id, arrive_airport_id, codeshare, days_sched, depart_time_sched, arrive_time_sched, airline_id)
 select 'DAL145', 1442, 1682, 'KLM145', 'MTWRF', '14:00:00', '10:00:00', id
 from airline where name = 'Delta Air Lines';
+
+insert into operates_flights (departed_day_time, arrived_day_time, revenue, cost, fuel_amount_start, fuel_amount_end, flight_num)
+values ('2024-05-05 13:00:00', '2024-05-05 18:30:00', 1000000, 775000, 20000, 8500, 'DAL145');
+
+insert into operates_flights (departed_day_time, arrived_day_time, revenue, cost, fuel_amount_start, fuel_amount_end, flight_num)
+values ('2024-05-06 13:00:00', '2024-05-06 18:17:00', 800000, 500000, 20000, 8500, 'DAL145');
+
+insert into operates_flights (departed_day_time, arrived_day_time, revenue, cost, fuel_amount_start, fuel_amount_end, flight_num)
+values ('2024-05-07 13:00:00', '2024-05-07 18:22:00', 1500000, 975000, 20000, 3500, 'DAL145');
+
+insert into operates_flights (departed_day_time, arrived_day_time, revenue, cost, fuel_amount_start, fuel_amount_end, flight_num)
+values ('2024-05-08 14:30:00', '2024-05-08 20:32:00', 500000, 275000, 20000, 4500, 'DAL145');
+
+insert into operates_flights (departed_day_time, arrived_day_time, revenue, cost, fuel_amount_start, fuel_amount_end, flight_num)
+values ('2024-05-09 13:00:00', '2024-05-09 18:30:00', 1300000, 975000, 20000, 6500, 'DAL145');
